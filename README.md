@@ -5,6 +5,8 @@
 
 Tasked with creating a DEEPi BRUV system to film sharks in the Bahamas. This system will only include a single node which can be directly controlled by the client computer when on the surface.
 
+> Note: New versions of DEEPi software are already in the works. This system works on old code based on V2.0. The only software changes have been in the README documentation. This software and this document will be obsolete in the near future. Check for updates before using.
+
 ## Quickstart
 
 1. Power on DEEPi Cams in range of a DEEPi Router and wait until blinking is done. DEEPi Cams will autostart the appropriate Python scripts.
@@ -36,9 +38,25 @@ Tasked with creating a DEEPi BRUV system to film sharks in the Bahamas. This sys
 
 ## Troubleshooting
 
+### Common Issues
+
+ * Use python3 not python. Standard python on the RPI-Zero is 2.7. It should work, but the code was not designed to work with 2.7.
+
 ### Changing code
 
 Change code on your computer and transfer it to the pi via FTP. You can do it over SSH, but that makes it hard to record changes. Best practice would be to clone this repo and use GIT to track changes.
+
+The code is set up so that <deepi.py> is the main module. This includes a class called DEEPi which can be called. The <deepi.py> file does not run any code. It only facilitates simple scripts. Most options can be added without touching this file. Additionally, the DEEPi class has all of the attributes and methods of the PiCamera class. 
+
+To develop new functionality, generally all that is needed to to tap into this class. Looking at the help file will show everything it can do.
+
+``` Python
+>>> from deepi import DEEPi
+>>> camera = DEEPi()
+>>> help(camera)
+```
+
+<app.py> is the script that is actually called by the startup programs. This can easily be replaced with a script that runs automatic functions. 
 
 ### Address not recognized
 
