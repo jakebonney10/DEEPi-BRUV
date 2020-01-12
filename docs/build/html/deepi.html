@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>deepi module &#8212; DEEPi BRUV 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-deepi">
+<span id="deepi-module"></span><h1>deepi module<a class="headerlink" href="#module-deepi" title="Permalink to this headline">¶</a></h1>
+<p>PiCamera implementation for deep sea applications</p>
+<dl class="class">
+<dt id="deepi.DEEPi">
+<em class="property">class </em><code class="sig-prename descclassname">deepi.</code><code class="sig-name descname">DEEPi</code><span class="sig-paren">(</span><em class="sig-param">diveFolder='./'</em><span class="sig-paren">)</span><a class="headerlink" href="#deepi.DEEPi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">picamera.PiCamera</span></code></p>
+<p>PiCamera implementation for deep sea applications.</p>
+<dl class="method">
+<dt id="deepi.DEEPi.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepi.DEEPi.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Release all resources</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deepi.DEEPi.deploy">
+<code class="sig-name descname">deploy</code><span class="sig-paren">(</span><em class="sig-param">splitTime=600</em><span class="sig-paren">)</span><a class="headerlink" href="#deepi.DEEPi.deploy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run deployment script</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deepi.DEEPi.reboot">
+<code class="sig-name descname">reboot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepi.DEEPi.reboot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="deepi.DEEPi.rotate">
+<code class="sig-name descname">rotate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepi.DEEPi.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate view 90 degrees</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deepi.DEEPi.shutdown">
+<code class="sig-name descname">shutdown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepi.DEEPi.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="deepi.DEEPi.snap_pic">
+<code class="sig-name descname">snap_pic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepi.DEEPi.snap_pic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save a picture with current time</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deepi.DEEPi.start_stream">
+<code class="sig-name descname">start_stream</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepi.DEEPi.start_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the threaded process for updating the live stream frame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deepi.DEEPi.status">
+<em class="property">static </em><code class="sig-name descname">status</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#deepi.DEEPi.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="deepi.DEEPi.stop_stream">
+<code class="sig-name descname">stop_stream</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepi.DEEPi.stop_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>End threaded process for updating the live stream frame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deepi.DEEPi.update_frame">
+<code class="sig-name descname">update_frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepi.DEEPi.update_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Continuous capture that saves the latest frame in memory.
+Any live stream applications will access this updating frame</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="deepi.genName">
+<code class="sig-prename descclassname">deepi.</code><code class="sig-name descname">genName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deepi.genName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">DEEPi BRUV</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Russell Shomberg.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/deepi.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
