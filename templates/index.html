@@ -26,7 +26,10 @@
   <body>
     <h1>Video Streaming Demonstration</h1>
     <h2>{{ ip }}</h2>
-    <img src="{{ url_for('video_feed') }}" style="width:50%; float:left"/>
+    <div style="width:50%; float:left">
+      <img src="{{ url_for('video_feed') }}" />
+      <p>{{ status }}</p>
+    </div>
     <form action="/cmd">
       {% for command in commands %}
       <button class="command command-{{ command }}" value="{{ command }}" style="width:25%;font-size:large;float:left;">

@@ -46,6 +46,7 @@ class DEEPi(PiCamera):
     @staticmethod
     def status(self):
         #TODO: impliment dictionary with useful stuff
+        status = "Recording: {}".format(self.recording)
         return "Status: GOOD"
 
     def rotate(self):

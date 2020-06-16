@@ -5,8 +5,12 @@ import socket
 
 from flask import Flask, render_template, Response
 from deepi import DEEPi
+from deepilight import DEEPiLight
 
+# Create instances to be used the app
 camera = DEEPi()
+light = DEEPiLight(pin = 18, delay = 0.2)
+
 app = Flask(__name__)
 
 def get_ip():
