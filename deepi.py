@@ -43,11 +43,10 @@ class DEEPi(PiCamera):
         PiCamera.close(self)
         # TODO: check for threads and terminate/join them <>
 
-    @staticmethod
     def status(self):
         #TODO: impliment dictionary with useful stuff
-        status = "Recording: {}".format(self.recording)
-        return "Status: GOOD"
+        status = "Recording: {}".format(self.deployed)
+        return status
 
     def rotate(self):
         '''Rotate view 90 degrees'''
@@ -70,7 +69,7 @@ class DEEPi(PiCamera):
         '''
         self.stream = io.BytesIO()
         print("Starting capture")
-        for _ in PiCamera.capture_continuous(self, self.stream, 'jpeg', use_video_port=True):
+        for _ in PiCamera.capture_continuous(self, self.stream, 'jpeg', use_video_port=True, resize=(640,480)):
             if self.stream == None:
                 self.stream = None
                 break
@@ -105,14 +104,23 @@ class DEEPi(PiCamera):
             time.sleep(delay)
     '''
     
-    def deploy(self, splitTime = 600):
+    def start_recording(self, splitTime = 600):
         '''Run deployment script'''
         print("Recording first video")
         PiCamera.start_recording( self, output='/home/pi/Videos/{}.h264'.format(next(name) ), splitter_port=1)
-        while True:
+        self.deployed = True
+        while self.deployed:
             PiCamera.wait_recording(self, timeout=splitTime, splitter_port=1)
             print("Splitting recording")
             PiCamera.split_recording( self, output='/home/pi/Videos/{}.h264'.format(next(name)), splitter_port=1)
+
+    def stop_recording(self):
+        if not self.deployed:
+            return
+
+        PiCamera.stop_recording(self, splitter_port=1)
+        self.deployed = False
+        return
 
     def reboot(self):
         PiCamera.close()

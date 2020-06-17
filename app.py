@@ -53,14 +53,17 @@ commands = ['status'
             ,'start_stream'
             ,'stop_stream'
             ,'snap_pic'
-            ,'deploy'
+            ,'start_recording'
+            ,'stop_recording'
+            ,'toggle_lights'
             ,'reboot'
             ,'shutdown'
 ]
 
 @app.route('/')
 def index():
-    return render_template('index.html', commands = commands, status=camera.status, ip=get_ip())
+    return render_template('index.html', commands = commands,
+                           status=camera.status(), ip=get_ip())
 
 @app.route('/cmd/<command>')
 def run(command):
@@ -69,13 +72,15 @@ def run(command):
 
     if command=='shutdown':
         os.system('sudo shutdown now')
-    if command=='reboot':
+    elif command=='reboot':
         os.system('sudo reboot now')
-
-    try:
-        response = eval("camera.{}()".format(command))
-    except:
-        raise
+    elif command=='toggle_lights':
+        light.press_button()
+    else:
+        try:
+            response = eval("camera.{}()".format(command))
+        except:
+            raise
 
     return "Success: {}".format(command), 200, {'Content-Type': 'text/plain'}
 

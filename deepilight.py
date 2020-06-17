@@ -31,15 +31,15 @@ class DEEPiLight: # TODO: increase docstring
                                    initial_value=True, pin_factory=None) 
         self.delay = delay
 
-    def press_button(self, delay):
+    def press_button(self):
         '''Simulate a button press on the modified head lamp by setting the
         pin high and then low
 
         '''
         self.pwm.value = 0.0
-        sleep(delay)
+        sleep(self.delay)
         self.pwm.value = 1.0
-        sleep(delay)
+        sleep(self.delay)
             
 if __name__ == "__main__": # Runs if called as an individual script
 
