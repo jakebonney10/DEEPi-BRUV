@@ -96,13 +96,11 @@ class DEEPi(PiCamera):
         self.stream = None
         self.thread.join()
         self.thread = None
-    '''
-    def time_lapse(self,delay=10, max_photos=None):
-        basename = next(name)
-        for filename in PiCamera.capture_continuous(self, '/home/pi/Pictures/{}{counter:03d}.jpg'.format(basename), use_video_port=True):
+
+    def time_lapse(self, delay=10):
+        for filename in PiCamera.capture_continuous(self, '/home/pi/Pictures/{}{counter:03d}.jpeg'.format(next(name))):
             print('Captured {}'.format(filename))
             time.sleep(delay)
-    '''
     
     def start_recording(self, splitTime = 600):
         '''Run deployment script'''
