@@ -97,8 +97,9 @@ class DEEPi(PiCamera):
         self.thread.join()
         self.thread = None
 
-    def time_lapse(self, delay=10):
-        for filename in PiCamera.capture_continuous(self, '/home/pi/Pictures/{}{counter:03d}.jpeg'.format(next(name))):
+    def time_lapse(self, delay=10, resolution = (3280,2464)):
+        self.resolution = resolution
+        for filename in PiCamera.capture_continuous(self, '/home/pi/Pictures/{timestamp:%Y%m%d_%H%M%S}_{counter}.jpg', use_video_port=True):
             print('Captured {}'.format(filename))
             time.sleep(delay)
     

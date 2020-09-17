@@ -1,12 +1,9 @@
 from deepi import DEEPi
 
-camera = DEEPi()
-DEEPi.time_lapse(camera, delay = 10)
+'''
+Super simple script which calls on deepi class to use time_lapse function.
+Set delay to choose frame rate (s). Set wait_to_start (s) to wait before beginning timelapse.
+'''
 
-'''
-camera = PiCamera()
-sleep(2)
-for filename in camera.capture_continuous('img-{timestamp:%Y-%m-%d-%H-%M-%S}.jpg'):
-    print('Captured %s' % filename)
-    sleep(10) # wait 10 seconds
-'''
+camera = DEEPi()
+DEEPi.time_lapse(camera, delay = 10, resolution = (3280,2464))
